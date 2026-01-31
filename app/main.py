@@ -25,6 +25,3 @@ def home(request: Request):
 @app.post("/classificar")
 def classificar(req: EmailRequest):
     return classify_and_reply(req.email)
-
-from mangum import Mangum
-handler = Mangum(app)
