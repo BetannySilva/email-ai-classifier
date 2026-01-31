@@ -6,3 +6,4 @@ jinja2
 google
 python-dotenv
 pydantic
+mangum
