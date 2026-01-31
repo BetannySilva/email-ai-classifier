@@ -2,7 +2,6 @@ import spacy
 
 nlp=spacy.load("pt_core_news_sm")
 
-
 #Pipeline de normalização textual
 def process_email(text:str)->str:
  

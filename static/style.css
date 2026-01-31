@@ -12,7 +12,7 @@ html, body {
 .title {
   font-size: 36px;
   font-weight: 800;
-  color: #07246d; /* cinza escuro */
+  color: #07246d; 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -60,9 +60,9 @@ html, body {
 
 .topo p {
   margin-top: 12px;
-  font-size: 18px;   /* aumentou */
+  font-size: 18px;   
   color: #475569;
-  line-height: 1.5; /* deixa mais elegante */
+  line-height: 1.5; 
 }
 
 
@@ -110,7 +110,7 @@ textarea {
   max-height: 220px;
   min-height: 220px;
 
-  background: #f3f3f5;   /* cor do Figma */
+  background: #f3f3f5;  
   border: none;
   border-radius: 14px;
 

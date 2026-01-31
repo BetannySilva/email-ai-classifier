@@ -1,56 +1,6 @@
-<!-- <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <title>MailMind AI</title>
-  <link rel="stylesheet" href="/static/style.css">
-</head>
-<body>
-  <div class="container">
-    <h1>📧 MailMind AI</h1>
-    <p>Classificador inteligente de e-mails</p>
-
-    <textarea id="email" placeholder="Cole o e-mail aqui..."></textarea>
-    <button onclick="classificar()">Classificar</button>
-
-    <div id="loading" class="hidden">Analisando...</div>
-
-    <div id="resultado" class="card hidden">
-      <h3>Resultado</h3>
-      <p><strong>Categoria:</strong> <span id="categoria"></span></p>
-      <p><strong>Resposta sugerida:</strong></p>
-      <p id="resposta"></p>
-    </div>
-  </div>
-
-  <script>
-    async function classificar() {
-      const email = document.getElementById("email").value;
-      if (!email) return alert("Cole um e-mail!");
-
-      document.getElementById("loading").classList.remove("hidden");
-      document.getElementById("resultado").classList.add("hidden");
-
-      const res = await fetch("/classificar", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email })
-      });
-
-      const data = await res.json();
-
-      document.getElementById("loading").classList.add("hidden");
-      document.getElementById("resultado").classList.remove("hidden");
-
-      document.getElementById("categoria").textContent = data.categoria;
-      document.getElementById("resposta").textContent = data.resposta;
-    }
-  </script>
-</body>
-</html> -->
-
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <title>Classificador de Emails com IA</title>
@@ -64,7 +14,7 @@
     <div class="topo-content">
       <h1 class="title" font-size="large" font-bold text-gray-900>
         <span class="icon">✨</span>
-        Classificador de Emails com IA 
+        Classificador de Emails com IA
       </h1>
       <p class="subtitle">
         Analise seus emails e receba classificação automática de importância
@@ -94,29 +44,32 @@
       <!-- CARD DIREITO -->
       <section class="card">
 
-       <!-- ESTADO VAZIO -->
-<div id="empty" class="empty-state">
-  <span class="mail-icon1">✉</span>
-  <p id="empty-text">
-    Cole um email e clique em "Analisar" para ver os resultados
-  </p>
-</div>
+        <!-- ESTADO VAZIO -->
+        <div id="empty" class="empty-state">
+          <span class="mail-icon1">✉</span>
+          <p id="empty-text">
+            Cole um email e clique em "Analisar" para ver os resultados
+          </p>
+        </div>
 
 
-<!-- RESULTADO (COMEÇA ESCONDIDO) -->
-<div id="result" class="hidden"><button class="btn-copy" onclick="copiar()">
-  <svg class="copy-icon" viewBox="0 0 24 24">
-    <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
-  </svg>
-  Copiar 
-</button>
-  <p><strong>Categoria:</strong> <span id="categoria"></span></p>
+        <!-- RESULTADO (COMEÇA ESCONDIDO) -->
+        <div id="result" class="hidden">
 
-  <h3>Resposta Sugerida</h3>
-  <p id="resposta"></p>
- 
+          <p><strong>Categoria:</strong> <span id="categoria"></span></p>
 
-</div>
+          <h3>Resposta Sugerida</h3>
+          <p id="resposta"></p>
+                    <button class="btn-copy" onclick="copiar()">
+            <svg class="copy-icon" viewBox="0 0 24 24">
+              <path
+                d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z" />
+            </svg>
+            Copiar Resposta
+          </button>
+
+
+        </div>
 
       </section>
 
@@ -125,53 +78,54 @@
 
   <!-- SCRIPT -->
   <script>
-async function classificar() {
-  const email = document.getElementById("email").value;
+    async function classificar() {
+      const email = document.getElementById("email").value;
 
-  if (!email.trim()) {
-    alert("Cole um email primeiro!");
-    return;
-  }
+      if (!email.trim()) {
+        alert("Cole um email primeiro!");
+        return;
+      }
 
-  const empty = document.getElementById("empty");
-  const emptyText = document.getElementById("empty-text");
-  const result = document.getElementById("result");
+      const empty = document.getElementById("empty");
+      const emptyText = document.getElementById("empty-text");
+      const result = document.getElementById("result");
 
-  // estado: carregando
-  emptyText.textContent = "Analisando...";
-  empty.classList.remove("hidden");
-  result.classList.add("hidden");
+      // estado: carregando
+      emptyText.textContent = "Analisando...";
+      empty.classList.remove("hidden");
+      result.classList.add("hidden");
 
-  try {
-    const res = await fetch("/classificar", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email })
-    });
+      try {
+        const res = await fetch("/classificar", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email })
+        });
 
-    if (!res.ok) throw new Error("Erro no servidor");
+        if (!res.ok) throw new Error("Erro no servidor");
 
-    const data = await res.json();
+        const data = await res.json();
 
-    // estado: sucesso
-    empty.classList.add("hidden");
-    result.classList.remove("hidden");
+        // estado: sucesso
+        empty.classList.add("hidden");
+        result.classList.remove("hidden");
 
-    document.getElementById("categoria").textContent = data.categoria;
-    document.getElementById("resposta").textContent = data.resposta;
+        document.getElementById("categoria").textContent = data.categoria;
+        document.getElementById("resposta").textContent = data.resposta;
 
-  } catch (err) {
-    emptyText.textContent = "Erro ao analisar. Tente novamente.";
-  }
-}
+      } catch (err) {
+        emptyText.textContent = "Erro ao analisar. Tente novamente.";
+      }
+    }
 
-function copiar() {
-  const texto = document.getElementById("resposta").innerText;
-  navigator.clipboard.writeText(texto);
-  alert("Resposta copiada!");
-}
-</script>
+    function copiar() {
+      const texto = document.getElementById("resposta").innerText;
+      navigator.clipboard.writeText(texto);
+      alert("Resposta copiada!");
+    }
+  </script>
 
 
 </body>
+
 </html>
