@@ -5,11 +5,12 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+# Cria o cliente da API Gemini usando a chave de ambiente
 client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
-
+# Modelo utilizado
 MODEL = "models/gemini-flash-latest"
 
-
+    # Prompt enviado para a IA
 def classify_and_reply(email_text: str):
     prompt = f"""
 Você é um assistente de uma empresa do setor financeiro.
@@ -26,7 +27,7 @@ Email:
 Responda SOMENTE com um JSON válido:
 {{"categoria": "...", "resposta": "..."}}
 """
-
+ # Função que faz a chamada à IA
     def call():
         return client.models.generate_content(
             model=MODEL,

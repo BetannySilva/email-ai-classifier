@@ -71,8 +71,10 @@
 
   <!-- SCRIPT -->
   <script>
+
     const API = window.location.origin;
 
+// Função chamada ao clicar em "Analisar Email"
     async function classificar() {
       const email = document.getElementById("email").value;
       if (!email.trim()) {
@@ -84,11 +86,13 @@
       const emptyText = document.getElementById("empty-text");
       const result = document.getElementById("result");
 
+       // Estado de carregamento
       emptyText.textContent = "Analisando...";
       empty.classList.remove("hidden");
       result.classList.add("hidden");
 
       try {
+              // Envia o email para o backend
         const res = await fetch(`${API}/classificar`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -98,7 +102,7 @@
         if (!res.ok) throw new Error("Erro no servidor");
 
         const data = await res.json();
-
+   // Exibe o resultado
         empty.classList.add("hidden");
         result.classList.remove("hidden");
 
@@ -110,6 +114,7 @@
       }
     }
 
+  // Função do botão "Copiar Resposta"
    function copiar() {
   const texto = document.getElementById("resposta").innerText;
   const btn = document.querySelector(".btn-copy");
