@@ -138,6 +138,23 @@ Carlos Silva
 * A versão gratuita da API Gemini possui **limite diário de requisições**
 * Em caso de erro 429, aguarde e tente novamente mais tarde
 
+### 📄 Justificativa para o uso de entrada em texto
+
+A aplicação foi projetada para trabalhar exclusivamente com texto inserido manualmente pelo usuário, em vez de exigir o envio de arquivos (como PDFs ou imagens).
+
+Essa decisão foi tomada por três motivos principais:
+
+* **Facilidade de uso:**
+O usuário pode simplesmente copiar e colar o conteúdo do email (assunto, remetente e corpo) no campo de texto, sem a necessidade de gerar ou converter arquivos.
+
+* **Agilidade na análise:**
+O processamento direto do texto elimina etapas intermediárias, tornando a resposta mais rápida e reduzindo falhas relacionadas a leitura de arquivos.
+
+*  **Hospedagem mais simples e leve:**
+Ao não lidar com upload de arquivos nem armazenamento em banco de dados, a aplicação consome menos recursos do servidor, facilitando a hospedagem em plataformas gratuitas e de baixo custo.
+
+Assim, a escolha por trabalhar apenas com texto garante uma experiência mais prática para o usuário e maior eficiência técnica para o sistema.
+
 ---
 
 ## 👨‍💻 Autora
