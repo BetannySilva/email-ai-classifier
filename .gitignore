@@ -1,5 +1,30 @@
-.env
+# Python
 __pycache__/
-*.pyc
+*.py[cod]
+*.pyo
+
+# Ambiente virtual
 venv/
 .env
+pyvenv.cfg
+
+# VSCode
+.vscode/
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Cache
+.cache/
+
+# Testes / dados locais
+demo_data/
+
+# Build
+dist/
+build/
+
