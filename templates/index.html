@@ -110,11 +110,27 @@
       }
     }
 
-    function copiar() {
-      const texto = document.getElementById("resposta").innerText;
-      navigator.clipboard.writeText(texto);
-      alert("Resposta copiada!");
-    }
+   function copiar() {
+  const texto = document.getElementById("resposta").innerText;
+  const btn = document.querySelector(".btn-copy");
+
+  navigator.clipboard.writeText(texto).then(() => {
+    const textoOriginal = btn.innerHTML;
+
+    btn.innerHTML = "✔ Copiado!";
+    btn.style.background = "#22c55e";
+    btn.style.color = "white";
+    btn.style.border = "none";
+
+    setTimeout(() => {
+      btn.innerHTML = textoOriginal;
+      btn.style.background = "";
+      btn.style.color = "";
+      btn.style.border = "";
+    }, 2000);
+  });
+}
+
   </script>
 
 </body>
