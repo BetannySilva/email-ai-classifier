@@ -112,7 +112,8 @@ http://127.0.0.1:8000
 
 ## 🌐 Versão Online
 
-A aplicação também pode ser hospedada em plataformas como **Render**.
+A aplicação também está hospedada na plataforma **Render**:
+https://email-ai-classifier-q5u5.onrender.com/
 
 ---
 
