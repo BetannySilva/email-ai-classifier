@@ -1,0 +1,224 @@
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background:#e0e7ff; 
+  font-family: 'Segoe UI', sans-serif;
+}
+ 
+
+.title {
+  font-size: 36px;
+  font-weight: 800;
+  color: #07246d; /* cinza escuro */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.icon {
+  font-size: 34px;
+}
+
+
+.topo {
+  
+  border-bottom: 1px solid #e2e8f0;
+  padding: 40px 20px 30px;
+}
+
+.topo-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#empty-text {
+  font-size: 18px;
+  color: #475569;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.topo h1 {
+  font-size: 34px;
+  font-weight: 700;
+  color: #0f172a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.topo .icon {
+  color: #6366f1;
+  font-size: 30px;
+}
+
+.topo p {
+  margin-top: 12px;
+  font-size: 18px;   /* aumentou */
+  color: #475569;
+  line-height: 1.5; /* deixa mais elegante */
+}
+
+
+
+main {
+  
+  max-width: 1300px;
+  margin: 0 auto;
+
+  padding: 40px 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.card {
+  background: white;
+  border-radius: 18px;
+  padding: 26px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+}
+
+.card-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+
+.mail-icon {
+  color: #6366f1;
+}
+
+.mail-icon1 {
+  font-size: 30px;
+  color: #6366f1;
+}
+textarea {
+  width: auto;
+  height: 220px;
+  max-height: 220px;
+  min-height: 220px;
+
+  background: #f3f3f5;   /* cor do Figma */
+  border: none;
+  border-radius: 14px;
+
+  padding: 16px;
+  font-size: 14px;
+  color: #1f2933;
+  outline: none;
+
+  resize: none;
+  overflow-y: auto;
+}
+
+.btn-primary {
+  margin-top: 18px;
+  width: 100%;
+  background: #6366f1;
+  color: white;
+  border: none;
+  border-radius: 14px;
+  padding: 14px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background:#475569;
+}
+
+
+.btn-copy {
+
+  margin-top: 18px;
+  width: fit-content;
+  background: #ffffff;
+  color: #0f172a;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 10px 16px;
+  font-size: 16px;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  transition: all 0.2s ease;
+}
+
+.btn-copy:hover {
+  background: #f8fafc;
+  border-color: #c7d2fe;
+}
+
+.copy-icon {
+  width: 16px;
+  height: 16px;
+  stroke: #0f172a;
+  stroke-width: 1.8;
+  fill: none;
+}
+
+
+
+/* Garante que os cards cresçam corretamente */
+.card {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Textarea não pode ultrapassar o card */
+textarea {
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+/* Área de resposta também com scroll */
+#resposta {
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+/* Responsivo para celular */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  textarea {
+    max-height: 180px;
+  }
+
+  .card {
+    min-height: auto;
+  }
+}
+
+.btn-copy:hover {
+  background: #6366f1;
+}
+
+.hidden {
+  display: none;
+}
+
+
+
+.empty-state {
+  text-align: center;
+  color: #64748b;
+  margin-top: 60px;
+}
